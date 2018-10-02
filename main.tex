@@ -1,0 +1,165 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\usepackage[left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+\usepackage{acro} %To create acronyms lists
+
+%For beautiful math 
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%for lists
+\usepackage{enumitem}
+
+%for algortithms
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+%for quotes
+\usepackage{dirtytalk}
+\usepackage{csquotes}
+
+
+%Tikz related stuffs
+\usepackage{tikz}
+%for control diagrams
+\usetikzlibrary{arrows}
+\tikzstyle{every node}=[font=\small]
+\tikzstyle{int}=[draw, minimum size=2em]
+\tikzstyle{block} = [draw, rectangle, minimum height=2em, minimum width=4em]
+\tikzstyle{init} = [pin edge={to-,thin,black}]
+\tikzstyle{sum} = [draw, circle, node distance=1.5cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{quad_body} = [draw, rectangle, minimum height=1em,fill=lightgray, minimum width=2em]
+%for quadrotor
+
+\usepackage{gantt}
+
+\usepackage{subcaption} 
+%%matplotlib packages
+\usepackage{pgf}
+
+\DeclareAcronym{BBB}{
+  short = BBB,
+  long  = Bla Bla Bla,
+  class = abbrev
+}
+
+
+\DeclareAcronym{alpha}{
+  short = $\alpha$,
+  long  = the angle between mass ang gravity vector,
+  sort = a,
+  class = symbol
+}
+
+
+\author{Johan B. Ubbink \\ 18977588}
+%\date{Day Month Year}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{university.png}
+        \vspace*{3cm}
+        
+        \textbf{{\huge Skripsie Title}}
+        
+        
+        \vfill
+        
+        {\large Author Name \\ 12345678} \\
+        
+        
+        
+        
+        \vfill
+        
+        Report submitted in partial fulfilment of the requirements of the module Project (E) 448 for the degree Baccalaureus in Engineering in the Department of Electrical and Electronic Engineering at the University of Stellenbosch
+        
+        \vspace{2cm}
+        \large{Supervisor: N Surname \\}
+        \vspace{2cm}
+        \large {November 2018}
+        
+    \end{center}
+\end{titlepage}
+
+\pagenumbering{roman}
+%\include{chapters/abstract}
+
+
+
+\chapter*{Acknowledgements}
+Lorem ipsum
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION - DUAL LANGUAGE
+%----------------------------------------------------------------------------------------
+\newpage
+\chapter*{Plagiarism Declaration}
+\begin{enumerate}
+\item Plagiaat is die oorneem en gebruik van die idees, materiaal en ander intellektuele eiendom van ander persone asof dit jou eie werk is.\\
+\textit{Plagiarism is the use of ideas, material and other intellectual property of another's work and to present is as my own.}
+\item Ek erken dat die pleeg van plagiaat 'n strafbare oortreding is aangesien dit 'n vorm van diefstal is. \\
+\textit{I agree that plagiarism is a punishable offence because it constitutes theft.}
+\item Ek verstaan ook dat direkte vertalings plagiaat is.\\
+\textit{I also understand that direct translations are plagiarism.}
+\item Dienooreenkomstig is alle aanhalings en bydraes vanuit enige bron (ingesluit die internet) volledig verwys (erken). Ek erken dat die woordelikse aanhaal van teks sonder aanhalingstekens (selfs al word die bron volledig erken) plagiaat is.\\
+\textit{Accordingly all quotations and contributions from any source whatsoever (including the internet) have been cited fully. I understand that the reproduction of text without quotation marks (even when the source is cited) is plagiarism.}
+\item Ek verklaar dat die werk in hierdie skryfstuk vervat, behalwe waar anders aangedui, my eie oorspronklike werk is en dat ek dit nie vantevore in die geheel of gedeeltelik ingehandig het vir bepunting in hierdie module/werkstuk of 'n ander module/werkstuk nie.\\
+\textit{I declare that the work contained in this assignment, except where otherwise stated, is my original work and that I have not previously (in its entirety or in part) submitted it for grading in this module/assignment or another module/assignment.}
+\end{enumerate}
+\vspace{1cm}
+\begin{table}[ht]
+	\begin{center}
+		\begin{tabular*}{15.5cm}{@{\extracolsep{\fill}}lll}
+%		\begin{tabular}{l l l}
+               &   & 12345678\\
+			\makebox[8cm]{\hrulefill} & & \makebox[6cm]{\hrulefill}\\
+			Handtekening / \textit{Signature} & & Studentenommer / \textit{Student number}\\[1cm]
+			Name Surname  & & 3 November 2018\\
+			\makebox[8cm]{\hrulefill} & & \makebox[6cm]{\hrulefill}\\ 
+			Voorletters en van / \textit{Initials and surname} & & Datum / \textit{Date} \\
+		\end{tabular*}
+	\end{center}
+\end{table}
+\newpage
+
+%\input{chapters/summaries}
+\addcontentsline{toc}{chapter}{Abstract} 
+\include{chapters/abstract}
+
+\tableofcontents
+
+\addcontentsline{toc}{chapter}{List Of Figures} 
+\listoffigures
+
+\addcontentsline{toc}{chapter}{List Of Tables} 
+\listoftables
+%Acronym lists
+\addcontentsline{toc}{chapter}{Nomenclature} 
+\chapter*{Nomenclature}
+\printacronyms[include-classes=abbrev,name={List of Abbreviations}]
+\printacronyms[include-classes=symbol,name={List of Symbols}]
+
+\clearpage
+\pagenumbering{arabic}
+
+\input{chapters/chapter01}
+\input{chapters/chapter02}
+\appendix
+
+\addcontentsline{toc}{chapter}{Bibliography} 
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,skripsie}
+
+\input{chapters/appendixA}
+\input{chapters/appendixB}
+\input{chapters/appendixC}
+
+\end{document}
